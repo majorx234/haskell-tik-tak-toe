@@ -61,6 +61,8 @@ library
 
     -- Modules exported by the library.
     exposed-modules:  VizLib
+                     , GameLib
+                     , LogicLib
     ghc-options:
          -dynamic
 
@@ -72,8 +74,11 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    gloss,
-                      base ^>=4.16.4.0
+    build-depends:    base ^>=4.16.4.0,
+                      ghc-prim >= 0.8.0,
+                      gloss,
+                      vector >= 0.13.1.0,
+                      array
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -95,10 +100,15 @@ executable tiktaktoe
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
+ 
 
     -- Other library packages from which modules are imported.
     build-depends:
                   base ^>=4.16.4.0,
+                  ghc-prim >= 0.8.0,
+                  vector >= 0.13.1.0,
+                  gloss,
+                  tiktaktoe
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -131,4 +141,7 @@ test-suite tiktaktoe-test
     -- Test dependencies.
     build-depends:
                   base ^>=4.16.4.0,
-                  gloss
+                  ghc-prim >= 0.8.0,
+                  gloss,
+                  vector >= 0.13.1.0,
+ 
